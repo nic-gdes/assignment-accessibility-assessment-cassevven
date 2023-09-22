@@ -6,8 +6,8 @@ html, body {
 }
 
 html {
-  font-size: 10px;
-  background-color: #dde;
+  font-size: 16px;
+  background-color: rgb(159, 143, 112);
 }
 
 body {
@@ -16,9 +16,14 @@ body {
   margin: 0 auto;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+}
+
 /* || typography */
 
-font[size="7"], font[size="6"], font[size="5"] {
+h1, h2, h3, h4, h5 {
   font-family: 'Sonsie One', cursive;
   color: #2a2a2a;
 }
@@ -28,20 +33,30 @@ p, input, li, table, label {
   color: #2a2a2a;
 }
 
-font[size="7"] {
+h1 {
   font-size: 4rem;
   text-align: center;
   color: white;
   text-shadow: 2px 2px 10px black;
 }
 
-font[size="6"] {
-  font-size: 3rem;
+h2 {
+  font-size: 2.5rem;
   text-align: center;
 }
 
-font[size="5"] {
-  font-size: 2.2rem;
+h3 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+h4 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+h5 {
+  font-size: 1.5rem;
 }
 
 p, li, table {
@@ -52,7 +67,7 @@ p, li, table {
 /* || header layout */
 
 div[class="nav"], article, footer, .secondary {
-  background-color: green;
+  background-color: rgb(209, 218, 195);
 }
 
 article, footer, .secondary {
@@ -65,7 +80,7 @@ article {
 
 div[class="nav"] {
   height: 50px;
-  background-color: ff80ff;
+  background-color: #f5e2e2;
   display: flex;
   padding: 1% 0;
   margin-bottom: 10px;
@@ -86,11 +101,18 @@ div[class="nav"] li {
 
 div[class="nav"] a {
   display: inline-block;
-  font-size: 2rem;
+  font-size: 1.75rem;
   text-transform: uppercase;
-  text-decoration: none;
-  color: black;
+  text-decoration: underline;
+  color: rgb(100, 64, 64);
+
 }
+
+a :hover {
+  color: aquamarine;
+}
+
+
 
 div[class="nav"] .search {
   flex: 1;
@@ -127,9 +149,10 @@ article {
   flex: 5;
 }
 
-.secondary {
+.secondary, ul {
   flex: 2;
 }
+
 
 footer {
   margin-top: 10px;
