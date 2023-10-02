@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <html lang="en"></html>
+    <!-- There is already an <html> element, it contains all other page elements. Good job adding the language though! -->
 
     <title>Accessibility assessment</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" type="text/css">
@@ -15,24 +15,29 @@
   </head>
     <!--Removed all br elements, added paragraphs, html lang, and reordered header tags-->
   <body>
-    <section>
-    <div class="header">
-      <h1>Welcome to our wildlife website</h1>
-    </div>
+    <!-- The extra <section> was unneeded, and in fact you're not supposed to have a <main> inside of a <section>. -->
+    <header>
+      <div class="header">
+        <h1>Welcome to our wildlife website</h1>
+      </div>
 
-    <div class="nav">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Our team</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Blog</a></li>
-      </ul>
+      <div class="nav">
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Our team</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </nav>
+        <!-- You'll want to wrap link lists meant for site navigation with the semantic <nav> element -->
 
-      <form class="search">
-        <input type="search" id="search" name="q" placeholder="Search query" aria-label="Search">
-        <input type="submit" value="Go!" aria-label="Submit search">
-      </form>
-    </div>
+        <form class="search">
+          <input type="search" id="search" name="q" placeholder="Search query" aria-label="Search"> <!-- nice job using the aria-label so you didn't need a <label> element. -->
+          <input type="submit" value="Go!" aria-label="Submit search">
+        </form>
+      </div>
+    </header> <!-- it's important to remember to wrap your section (in this case, the page) header with the <header> element. -->
 
     <main>
       <article>
@@ -48,17 +53,17 @@
           <caption>Useful facts about bears</caption>
           <thead>
             <tr>
-              <th scope="col">Bear Type</td>
-              <th scope="col">Coat</td>
-              <th scope="col">Adult size</td>
-              <th scope="col">Habitat</td>
-              <th scope="col">Lifespan</td>
-              <th scope="col">Diet</td>
+              <th scope="col">Bear Type</th>
+              <th scope="col">Coat</th>
+              <th scope="col">Adult size</th>
+              <th scope="col">Habitat</th>
+              <th scope="col">Lifespan</th>
+              <th scope="col">Diet</th> <!-- these were closed with </td> tags instead of </th> -->
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Wild</td>
+              <th scope="row">Wild</th> <!-- these are actually horizontal headers, so they should be <th> and include a scope. -->
               <td>Brown or black</td>
               <td>1.4 to 2.8 meters</td>
               <td>Woods and forests</td>
@@ -66,7 +71,7 @@
               <td>Fish, meat, plants</td>
             </tr>
             <tr>
-              <td>Urban</td>
+              <th scope="row">Urban</th> <!-- these are actually horizontal headers, so they should be <th> and include a scope. -->
               <td>North Face</td>
               <td>18 to 22</td>
               <td>Condos and coffee shops</td>
@@ -75,6 +80,7 @@
             </tr>
           </tbody>
         </table>
+        <!-- Great job on the table Accessibility! You missed a couple of minor things, but well done -->
 
         <h4>Habitats and Eating habits</h4>
 
@@ -94,7 +100,7 @@
         <audio controls>
           <source src="media/bear.mp3" type="audio/mp3">
           <source src="media/bear.ogg" type="audio/ogg">
-          <p><a href="transcript.html">View Transcript</a></p>
+          <p><a href="transcript.html">View Transcript</a></p> <!-- with audio files, you'll want to give a fallback link directly to a downlaod of the audio file so the user can run it on their own computer. The transcript should be outside of the <audio> element so everyone can see it, not just people who's browsers can't use those file types. -->
         </audio>
 
         <aside>
@@ -146,13 +152,15 @@
       <div class="secondary">
         <h5>Related</h5>
 
-        <ul>
-          <li><a href="#">The trouble with Bees</a></li>
-          <li><a href="#">The trouble with Otters</a></li>
-          <li><a href="#">The trouble with Penguins</a></li>
-          <li><a href="#">The trouble with Octopi</a></li>
-          <li><a href="#">The trouble with Lemurs</a></li>
-        </ul>
+        <nav>
+          <ul>
+            <li><a href="#">The trouble with Bees</a></li>
+            <li><a href="#">The trouble with Otters</a></li>
+            <li><a href="#">The trouble with Penguins</a></li>
+            <li><a href="#">The trouble with Octopi</a></li>
+            <li><a href="#">The trouble with Lemurs</a></li>
+          </ul>
+        </nav>
       </div>
     </main>
 
@@ -161,6 +169,5 @@
     </footer>
 
     <script src="main.js"></script>
-  </section>
   </body>
 </html>
